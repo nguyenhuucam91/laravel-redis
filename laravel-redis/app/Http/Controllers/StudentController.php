@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -13,7 +14,10 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        //get all students inside database
+        $students = Student::all();
+        // return data to index file in students folder
+        return view('students.index', compact('students'));
     }
 
     /**

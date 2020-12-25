@@ -1,14 +1,14 @@
 version: "2"
 services:
   web:
-    container_name: $${PROJECT}-docker-nginx-latest
+    container_name: laravel-redis-docker-nginx-latest
     image: nginx:latest
     restart: always
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - ./$${PROJECT}:/var/www
+      - ./laravel-redis:/var/www
       - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
     links:
       - php
@@ -18,25 +18,25 @@ services:
     build:
       context: .
       dockerfile: php.dockerfile
-    container_name: $${PROJECT}-docker-php-fpm
+    container_name: laravel-redis-docker-php-fpm
     image: devilbox/php-fpm:7.4-prod-0.106
     restart: always
     volumes:
-      - ./$${PROJECT}:/var/www
+      - ./laravel-redis:/var/www
       - ./php/php.ini:/etc/php/7.4/fpm/php.ini
     links:
       - mysql
   mysql:
-    container_name: $${PROJECT}-docker-mysql
+    container_name: laravel-redis-docker-mysql
     image: mysql:5.6.26
     restart: always
     ports:
       - "3306:3306"
     environment:
-      - MYSQL_DATABASE=$${MYSQL_DATABASE}
-      - MYSQL_ROOT_PASSWORD=$${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=root
+      - MYSQL_ROOT_PASSWORD=123456
   redis:
-    container_name: $${PROJECT}-docker-redis
+    container_name: laravel-redis-docker-redis
     restart: always
     image: redis
     environment:

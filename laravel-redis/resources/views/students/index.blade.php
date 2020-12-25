@@ -24,7 +24,8 @@
                     <td>
                         <a href="/students/{{ $student->id }}/edit">Edit</a>
                         <a href="javascript:void(0)" onclick="document.getElementById('student-delete-form-{{ $student->id }}').submit()">Delete</a>
-                        <form action="/students/{{ $student->id }}" id="student-delete-form-{{ $student->id }}">
+                        <form action="/students/{{ $student->id }}" id="student-delete-form-{{ $student->id }}" method="POST">
+                            @method('DELETE')
                             @csrf
                         </form>
                     </td>

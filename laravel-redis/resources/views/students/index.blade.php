@@ -15,18 +15,19 @@
         <tbody>
             {{-- Foreach: loop through each element in collection|array, then get field from these attribute --}}
             @foreach ($students as $student)
-
-                <td>{{ $student->id }}</td>
-                <td>{{ $student->name }}</td>
-                <td>{{ $student->dob }}</td>
-                <td>{{ $student->phone_number }}</td>
-                <td>
-                    <a href="/edit/{{ $student->id }}">Edit</a>
-                    <a href="javascript:void(0)" onclick="document.getElementById('student-delete-form-{{$id}}').submit()">Delete</a>
-                    <form action="/students" id="student-delete-form-{{ $id }}">
-                        @csrf
-                    </form>
-                </td>
+                <tr>
+                    <td>{{ $student->id }}</td>
+                    <td>{{ $student->name }}</td>
+                    <td>{{ $student->dob }}</td>
+                    <td>{{ $student->phone_number }}</td>
+                    <td>
+                        <a href="/edit/{{ $student->id }}">Edit</a>
+                        <a href="javascript:void(0)" onclick="document.getElementById('student-delete-form-{{ $student->id }}').submit()">Delete</a>
+                        <form action="/students" id="student-delete-form-{{ $student->id }}">
+                            @csrf
+                        </form>
+                    </td>
+                </tr>
             @endforeach
         </tbody>
     </table>

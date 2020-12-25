@@ -15,8 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/user/profile', 'UserProfileController@index');
-// Route::post('/user/profile', 'UserProfileController@store');
+Route::resource('students', 'StudentController');
 
 Auth::routes();
 

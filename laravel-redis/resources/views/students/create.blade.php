@@ -10,7 +10,7 @@
         </div>
         <div class="form-group">
             <label for="dob">Dob</label>
-            <input class="form-control" id="dob" name="dob"/>
+            <input class="form-control" id="dob" name="dob" type="date"/>
         </div>
         <div class="form-group">
             <label for="phone_number">Phone number</label>

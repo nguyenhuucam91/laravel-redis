@@ -22,9 +22,9 @@
                     <td>{{ $student->dob }}</td>
                     <td>{{ $student->phone_number }}</td>
                     <td>
-                        <a href="/edit/{{ $student->id }}">Edit</a>
+                        <a href="/students/{{ $student->id }}/edit">Edit</a>
                         <a href="javascript:void(0)" onclick="document.getElementById('student-delete-form-{{ $student->id }}').submit()">Delete</a>
-                        <form action="/students" id="student-delete-form-{{ $student->id }}">
+                        <form action="/students/{{ $student->id }}" id="student-delete-form-{{ $student->id }}">
                             @csrf
                         </form>
                     </td>

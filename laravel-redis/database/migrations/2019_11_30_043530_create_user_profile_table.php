@@ -17,7 +17,7 @@ class CreateUserProfileTable extends Migration
             $table->string('full_name', 50);
             $table->date('dob');
             $table->string('address', 50);
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->primary();
 
             $table->foreign('user_id')->references('id')->on('users');
         });
